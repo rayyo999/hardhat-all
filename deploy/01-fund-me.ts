@@ -13,6 +13,7 @@ const func: DeployFunction = async function ({
   const { deploy, log, get } = deployments
   const { deployer } = await getNamedAccounts()
   const chainId = network.config.chainId as number
+  const isLocal = developmentChains.includes(network.name)
 
   let ethUsdPriceFeedAddress
   if (developmentChains.includes(network.name)) {
@@ -26,12 +27,9 @@ const func: DeployFunction = async function ({
     from: deployer,
     args,
     log: true,
-    waitConfirmations:6
+    waitConfirmations: isLocal ? 0 : 6,
   })
-  if (
-    !developmentChains.includes(network.name) &&
-    process.env.ETHERSCAN_API_KEY
-  ) {
+  if (!isLocal && process.env.ETHERSCAN_API_KEY) {
     await verify(fundMe.address, args)
   }
   log('----------------------------')

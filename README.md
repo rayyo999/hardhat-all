@@ -1,13 +1,10 @@
-# Sample Hardhat Project
+with some basic setup:
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-GAS_REPORT=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+1. @nomicfoundation/hardhat-toolbox
+2. deploy tags (hardhat-deploy)
+3. solhint
+4. mocks chainlink priceFeed
+5. testing (--grep "xxx")
+6. coverage
+7. gas-report
+8. typescript
