@@ -17,6 +17,7 @@
     "hardhat-deploy": "^0.11.12"
   },
   "dependencies": {
+    "@aave/protocol-v2": "^1.0.1",
     "dotenv": "^16.0.1"
   }
 }
